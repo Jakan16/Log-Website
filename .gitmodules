@@ -1,0 +1,3 @@
+[submodule "public_html"]
+	path = public_html
+	url = git@github.com:Rhodez-x/Log-CMS-website.git
