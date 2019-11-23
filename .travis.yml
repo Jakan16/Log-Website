@@ -5,7 +5,14 @@ env:
 services:
   - docker
 
+# Handle git submodules yourself
+git:
+    submodules: false
+# Use sed to replace the SSH URL with the public URL, then initialize submodules
 before_install:
+    - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+    - git submodule update --init --recursive
+    
   # Upgrade Docker Compose.
   - sudo rm /usr/local/bin/docker-compose
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
@@ -16,6 +23,7 @@ before_install:
   - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 
 before_script:
+
 
 script:
   - docker-compose up -d
