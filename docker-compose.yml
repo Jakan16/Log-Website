@@ -3,6 +3,7 @@ version: '3.7'
 services:
   apache:
     build: './apache'
+    image: 'logops/logops_apache:develop'
     restart: always
     ports:
       - 80:80
@@ -18,7 +19,14 @@ services:
       - mysql
   php:
     build: './php'
+    image: 'logops/logops_php:develop'
     restart: always
+    environment:
+      GLOBAL_URL: https://logops-dev.mitlogin.dk
+      LOGSTORE_URL: https://logstore-dev.mitlogin.dk
+      ALARMSERVICE_URL: https://logalarm-dev.mitlogin.dk
+      JOLIECLOUD_URL: https://joliecloud-dev.mitlogin.dk
+      AUTHSERVICE_URL: http://18.185.149.38:8000
     networks: 
       - backend
     volumes:
@@ -26,6 +34,7 @@ services:
       - ./tmp:/usr/local/tmp
   mysql:
     build: './mysql'
+    image: 'logops/logops_mysql:develop'
     restart: always
     ports:
       - 3306:3306
