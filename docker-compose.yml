@@ -1,7 +1,7 @@
 version: '3.7'
-
 services:
   apache:
+    container_name: apache
     build: './apache'
     image: 'logops/logops_apache:develop'
     restart: always
@@ -18,21 +18,23 @@ services:
       - php
       - mysql
   php:
+    container_name: php
     build: './php'
     image: 'logops/logops_php:develop'
     restart: always
     environment:
-      GLOBAL_URL: https://logops-dev.mitlogin.dk
-      LOGSTORE_URL: https://logstore-dev.mitlogin.dk
-      ALARMSERVICE_URL: https://logalarm-dev.mitlogin.dk
-      JOLIECLOUD_URL: https://joliecloud-dev.mitlogin.dk
-      AUTHSERVICE_URL: http://18.185.149.38:8000
+      GLOBAL_URL: ${GLOBAL_URL:-https://logops-dev.mitlogin.dk}
+      LOGSTORE_URL: ${LOGSTORE_URL:-https://logstore-dev.mitlogin.dk}
+      ALARMSERVICE_URL: ${ALARMSERVICE_URL:-https://logalarm-dev.mitlogin.dk}
+      JOLIECLOUD_URL: ${JOLIECLOUD_URL:-https://joliecloud-dev.mitlogin.dk}
+      AUTHSERVICE_URL: ${AUTHSERVICE_URL:-http://18.185.149.38:8000}
     networks: 
       - backend
     volumes:
       - ./public_html:/usr/local/apache2/htdocs
       - ./tmp:/usr/local/tmp
   mysql:
+    container_name: mysql
     build: './mysql'
     image: 'logops/logops_mysql:develop'
     restart: always
@@ -45,6 +47,7 @@ services:
       - ./database:/var/lib/mysql
   # phpmyadmin
   phpmyadmin:
+    container_name: phpmyadmin
     depends_on:
       - mysql
     image: phpmyadmin/phpmyadmin

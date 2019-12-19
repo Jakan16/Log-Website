@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Nov 30, 2019 at 11:52 AM
+-- Generation Time: Dec 18, 2019 at 12:59 PM
 -- Server version: 8.0.13
 -- PHP Version: 7.2.25
 
@@ -34,6 +34,27 @@ CREATE TABLE `ReplaceDBadmin_info` (
   `description` text NOT NULL,
   `priority` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ReplaceDBcompany`
+--
+
+CREATE TABLE `ReplaceDBcompany` (
+  `id` int(11) NOT NULL,
+  `company_name` varchar(128) NOT NULL DEFAULT '',
+  `company_key` varchar(512) NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `ReplaceDBcompany`
+--
+
+INSERT INTO `ReplaceDBcompany` (`id`, `company_name`, `company_key`) VALUES
+(1, 'Magic', '81df4340-1566-4c40-b641-5cd91e90d5f2'),
+(2, 'DatabaseInc', 'c07486d8-5fce-4d89-b850-55ebc0dbfe3c'),
+(3, 'FireWallAps', '50a06dd9-143d-4afc-aa57-d5cc0cb759d4');
 
 -- --------------------------------------------------------
 
@@ -162,11 +183,10 @@ CREATE TABLE `ReplaceDBnavi` (
 
 INSERT INTO `ReplaceDBnavi` (`id`, `link`, `required`, `navi_order`, `permission`, `place`) VALUES
 (1, 'index', 1, 1, 0, 'standart'),
-(3, 'kontakt', 0, 6, 0, 'standart'),
+(3, 'contact', 0, 6, 0, 'standart'),
 (4, 'control/index', 1, 1, 2, 'controlpanel'),
 (5, 'control/user_control', 1, 2, 2, 'controlpanel'),
 (6, 'control/master_control', 1, 3, 1, 'controlpanel'),
-(13, 'NewPage', 0, 5, 1, 'standart'),
 (16, 'login', 0, 7, 0, 'standart');
 
 -- --------------------------------------------------------
@@ -187,12 +207,11 @@ CREATE TABLE `ReplaceDBnavi_name` (
 --
 
 INSERT INTO `ReplaceDBnavi_name` (`id`, `name`, `language`, `parent_id`) VALUES
-(1, 'Forside', 'DK', 1),
-(3, 'Kontakt', 'DK', 3),
+(1, 'Home', 'DK', 1),
+(3, 'Contact', 'DK', 3),
 (4, 'Dashboard', 'DK', 4),
 (5, 'User settings', 'DK', 5),
 (6, 'Admin control', 'DK', 6),
-(13, 'NewPage', 'DK', 13),
 (16, 'Login', 'DK', 16);
 
 -- --------------------------------------------------------
@@ -276,9 +295,8 @@ CREATE TABLE `ReplaceDBtext` (
 --
 
 INSERT INTO `ReplaceDBtext` (`id`, `description`, `text`, `language`, `content_group`, `parent_id`, `required`, `bgimg`) VALUES
-(2, '', '<p>Standart forside</p>\n\n<p>&nbsp;</p>\n\n<p>Dette er version rt5.0.0a0</p>\n', 'DK', 'page', 1, 1, ''),
+(2, '', '<p>Standart forside</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Dette er version rt5.0.0a0</p>\r\n', 'DK', 'page', 1, 1, ''),
 (3, '', '<p>Kontakt:</p>\r\n\r\n<p>mail: kontakt@guld-berg.dk</p>\r\n', 'DK', 'page', 3, 0, ''),
-(11, '', 'NewPage', 'DK', 'page', 13, 0, ''),
 (14, '', '<p>Login</p>\r\n', 'DK', 'page', 16, 0, '');
 
 -- --------------------------------------------------------
@@ -299,16 +317,17 @@ CREATE TABLE `ReplaceDBusers` (
   `active` int(11) NOT NULL DEFAULT '0',
   `recoverycode` varchar(16) NOT NULL DEFAULT '',
   `recoverytime` varchar(16) NOT NULL DEFAULT '',
-  `permissions_reload` int(11) NOT NULL DEFAULT '0'
+  `permissions_reload` int(11) NOT NULL DEFAULT '0',
+  `company_key` varchar(128) NOT NULL DEFAULT '""'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `ReplaceDBusers`
 --
 
-INSERT INTO `ReplaceDBusers` (`id`, `username`, `username_clean`, `mail`, `mobile`, `permission_group_id`, `permission_list`, `password`, `active`, `recoverycode`, `recoverytime`, `permissions_reload`) VALUES
-(2, 'Sandsized_admin', 'sandsized_admin', 'contact@sandsized.com', '', 0, 'a:1:{i:0;i:1;}', 'eccbbb9d8d23af67ae68c9ef2919a356884365473ee6dbfa0778a7b798902173', 1, '', '', 0),
-(3, 'customer_1', 'customer_1', '', '', 0, 'a:2:{i:0;i:2;i:1;i:7;}', '7997c48a6c387012f4d74aa497c5326fb34af86ed29ab09ea031455055ebb87f', 1, '', '', 0);
+INSERT INTO `ReplaceDBusers` (`id`, `username`, `username_clean`, `mail`, `mobile`, `permission_group_id`, `permission_list`, `password`, `active`, `recoverycode`, `recoverytime`, `permissions_reload`, `company_key`) VALUES
+(2, 'Sandsized_admin', 'sandsized_admin', 'contact@sandsized.com', '', 0, 'a:1:{i:0;i:1;}', 'eccbbb9d8d23af67ae68c9ef2919a356884365473ee6dbfa0778a7b798902173', 1, '', '', 0, '\"\"'),
+(3, 'customer_1', 'customer_1', '', '', 0, 'a:2:{i:0;i:2;i:1;i:7;}', '7997c48a6c387012f4d74aa497c5326fb34af86ed29ab09ea031455055ebb87f', 1, '', '', 0, '\"\"');
 
 -- --------------------------------------------------------
 
@@ -342,6 +361,12 @@ INSERT INTO `ReplaceDBuser_info` (`id`, `firstname`, `lastname`, `profile_text`,
 --
 ALTER TABLE `ReplaceDBadmin_info`
   ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indexes for table `ReplaceDBcompany`
+--
+ALTER TABLE `ReplaceDBcompany`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `ReplaceDBcore_groups`
@@ -442,6 +467,12 @@ ALTER TABLE `ReplaceDBuser_info`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `ReplaceDBcompany`
+--
+ALTER TABLE `ReplaceDBcompany`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `ReplaceDBcore_groups`
