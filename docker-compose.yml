@@ -1,26 +1,5 @@
 version: '3.7'
 services:
-  nginx: 
-    build: './nginx'
-    #image: 'logops/logops_nginx:develop'
-    environment:
-      NGINX_GLOBAL_URL: ${NGINX_GLOBAL_URL:-http://apache:80}
-      NGINX_LOGSTORE_URL: ${NGINX_LOGSTORE_URL:-http://nginx:8080}
-      NGINX_ALARMSERVICE_URL: ${NGINX_ALARMSERVICE_URL:-http://nginx:8085}
-      NGINX_JOLIECLOUD_URL: ${NGINX_JOLIECLOUD_URL:-http://nginx:8001}
-      NGINX_AUTHSERVICE_URL: ${NGINX_AUTHSERVICE_URL:-http://nginx:7900}
-      NGINX_GETPARSERHOST_URL: ${NGINX_GETPARSERHOST_URL:-http://nginx:8006}
-    networks: 
-      - frontend
-      - backend
-    ports:
-      - 80:80
-      - 8443:443
-    depends_on:
-      - php
-      - mysql
-      - apache
-    command: /bin/bash -c "envsubst < /etc/nginx/conf.d/tmp > /etc/nginx/conf.d/reverse-proxy.conf && nginx -g 'daemon off;'" 
   apache:
     container_name: apache
     build: './apache'
@@ -28,6 +7,9 @@ services:
     restart: always
     environment:
       php_ADDR: 'php'
+    ports:
+      - 80:80
+      - 8443:443
     networks: 
       - frontend
       - backend
@@ -44,11 +26,11 @@ services:
     restart: always
     environment:
       MYSQL_ADDR: 'mysql'
-      GLOBAL_URL: ${GLOBAL_URL:-nginx}
-      LOGSTORE_URL: ${LOGSTORE_URL:-nginx}
-      ALARMSERVICE_URL: ${ALARMSERVICE_URL:-nginx}
-      JOLIECLOUD_URL: ${JOLIECLOUD_URL:-nginx}
-      AUTHSERVICE_URL: ${AUTHSERVICE_URL:-nginx/auth}
+      GLOBAL_URL: ${GLOBAL_URL:-https://logops-dev.mitlogin.dk}
+      LOGSTORE_URL: ${LOGSTORE_URL:-https://logstore-dev.mitlogin.dk}
+      ALARMSERVICE_URL: ${ALARMSERVICE_URL:-https://logalarm-dev.mitlogin.dk}
+      JOLIECLOUD_URL: ${JOLIECLOUD_URL:-https://joliecloud-dev.mitlogin.dk}
+      AUTHSERVICE_URL: ${AUTHSERVICE_URL:-http://18.185.149.38:8000}
     networks: 
       - backend
     volumes:
