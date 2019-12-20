@@ -1,0 +1,3 @@
+[submodule "plugins/SCMS-hello-plugin"]
+	path = plugins/SCMS-hello-plugin
+	url = git@github.com:Rhodez-x/SCMS-hello-plugin.git

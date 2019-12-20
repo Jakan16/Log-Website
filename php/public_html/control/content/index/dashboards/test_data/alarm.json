@@ -1,0 +1,33 @@
+{
+  "alarms": [
+    {
+      "id": 1,
+      "date": "2 Dec. 2019",
+      "alarm_name": "Honey user used!",
+      "customer": "customer1",
+      "agent_id": "Some_id"
+    },
+    {
+      "id": 2,
+      "date": "2 Dec. 2019",
+      "alarm_name": "Phishing mail detected",
+      "customer": "customer1",
+      "agent_id": "Some_id"
+    },
+    {
+      "id": 2,
+      "date": "1 Dec. 2019",
+      "alarm_name": "Hacker detected",
+      "customer": "customer1",
+      "agent_id": "Some_id"
+    }
+    {
+      "id": 5,
+      "date": "1 Dec. 2019",
+      "alarm_name": "Jeg er genial",
+      "customer": "customer1",
+      "agent_id": "Some_id"
+    }
+  ],
+  "results": 4 
+}

@@ -1,0 +1,66 @@
+  body {
+      color: black;
+      background: url("/design/cyber-3400789_1920.jpg");
+  }
+
+  hr {
+    border-color: black;
+  }
+
+  footer {
+    background-color: #F0F0F0;
+  }
+  
+  .GLOBALdesign {
+    margin-bottom: -2px;
+    padding:20px;
+    padding-top:2px;
+    border-radius: 0px 0px 0px 0px;
+    background: #F0F0F0;
+      
+  }
+  .navbar {
+      margin-bottom: 0;
+      z-index: 9997;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+  }
+
+
+.navbar-inner {
+    background:#F0F0F0;
+
+}
+
+.navbar-brand {
+    color: black !important;
+
+}
+
+.navi-link {
+    color: black !important;  
+}
+
+.navbar-toggle {
+  z-index: 9998;
+}
+
+.dropdown-menu {
+  background-color:#F0F0F0 !important;
+}
+
+.drop_menu_link:hover {
+  color:black !important;
+}
+
+#editor { 
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
