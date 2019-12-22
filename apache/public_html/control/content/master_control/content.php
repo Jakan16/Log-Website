@@ -20,7 +20,6 @@
         <li><a href="/control/master_control#company">Add Company</a></li>
         <li><a href="/control/master_control#Companies">Company overview</a></li>
         <li><a href="/control/master_control#pages">Add/remove pages</a></li>
-        <li><a href="/control/master_control#backup">Backup database</a></li>
         <li><a href="/control/master_control#plugs">Plugin list</a></li>
       </ul>
     </nav>
@@ -90,7 +89,7 @@
                 /* Setup values for the loop
                 *  Deffrent options for deffrend kind of user state
                 */
-                $page_edit_text = $page_edit_text . '<h3>Medlemmer</h3>';
+                $page_edit_text = $page_edit_text . '<h3>User list</h3>';
                 $conn = get_db_connection(MAIN_DB_HOST, MAIN_DB_DATABASE_NAME, MAIN_DB_USER, MAIN_DB_PASS);
                 $stmt = $conn->prepare("SELECT * FROM ".MAIN_DB_PREFIX."users ORDER BY active DESC, username;");
                 $stmt->execute();
@@ -329,12 +328,6 @@
         ?>
         <hr />
       </div>
-        <div id="backup" >         
-            <h2>Backup database</h2>
-            <form class="form-inline" action="/control/content/master_control/create_backup" method="post">
-                <button type="submit" class="btn btn-default">Hent backup</button>
-            </form>
-        </div>
         <hr />
         <div id="plugs" >         
             <h2>Plugin liste</h2>
@@ -356,7 +349,7 @@
                         }
                     }
                     else {
-                        $plugin_list = "Ingen elementer er fundet";
+                        $plugin_list = "No plugin found";
                     }
                 }
                 catch(PDOException $e) {

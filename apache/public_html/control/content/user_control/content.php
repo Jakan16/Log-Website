@@ -32,9 +32,9 @@ else {
         <nav class="col-sm-3" id="myScrollspy">
             <ul class="nav nav-pills nav-stacked">
                 <li><h3>Oversigt</h3></li>
-                <li><a href="#username">Ændre brugernavn</a></li>
-                <li><a href="#password">Ændre password</a></li>
-                <li><a href="#profile">Ændre profiloplysninger</a></li>
+                <li><a href="#username">Change username</a></li>
+                <li><a href="#password">Change password</a></li>
+                <li><a href="#profile">Change profile information</a></li>
             </ul>
         </nav>
         <div class="col-sm-6">
@@ -43,15 +43,15 @@ else {
             unset($_SESSION["uploade_feedback"]); 
         ?>
             <div id="username"> 
-                <h2>Ændre brugernavn:</h2>
+                <h2>Change username:</h2>
                 <form name="createForm" action="/control/content/user_control/name_pass_handler" onsubmit="return confirmAction()" method="post">
                     <div class="form-group">
-                    <label for="titel">Nyt brugernavn:</label>
+                    <label for="titel">New username:</label>
                     <input type="text" class="form-control" name="username" id="username" value="<?php echo $username_form_value; ?>">
                     <span id="errUser"></span>
                     </div>
                     <div class="form-group">
-                    <label for="titel">Indtast nuværende password:</label>
+                    <label for="titel">Current password:</label>
                     <input type="password" class="form-control" name="password" id="password">
                     <span id="errPass"></span>
                     </div>
@@ -61,20 +61,20 @@ else {
             </div>
             <Hr / > 
             <div id="password">
-                <h2>Ændre password:</h2>
+                <h2>Change password:</h2>
                 <form name="createForm" action="/control/content/user_control/name_pass_handler" onsubmit="return confirmAction()" method="post">
                     <div class="form-group">
-                    <label for="titel">Indtast nyt password:</label>
+                    <label for="titel">New passord:</label>
                     <input type="password" class="form-control" name="new_pass" id="new_pass">
                     <span id="errUser"></span>
                     </div>
                     <div class="form-group">
-                    <label for="titel">Gentag nyt password:</label>
+                    <label for="titel">Repeat new password:</label>
                     <input type="password" class="form-control" name="rep_pass" id="rep_pass">
                     <span id="errUser"></span>
                     </div>
                     <div class="form-group">
-                    <label for="titel">Indtast nuværende password:</label>
+                    <label for="titel">Current password:</label>
                     <input type="password" class="form-control" name="password" id="password">
                     </div>
                     <?php echo $_SESSION["change_password_feedback"] . "<br>"; ?>
@@ -83,7 +83,7 @@ else {
             </div>
             <Hr / >
             <div id="profile">
-                <h2>Ændre profiloplysninger:</h2>
+                <h2>Change profile information</h2>
                 <form name="createForm" action="/control/content/user_control/user_handler" onsubmit="return confirmAction()" method="post">
                     <div class="form-group">
                     <label for="titel">E-mail:</label>
@@ -91,7 +91,7 @@ else {
                     <span id="errPass"></span>
                     </div>
                     <?php echo $_SESSION["change_mail_feedback"] . "<br>"; ?>
-                    <button type="submit" class="btn btn-default">Opdater</button>
+                    <button type="submit" class="btn btn-default">Save</button>
                 </form>
             </div>
             <Hr / >  

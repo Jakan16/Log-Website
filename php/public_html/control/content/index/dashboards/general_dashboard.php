@@ -64,7 +64,7 @@ $content_agent_list
                     <div class='col-md-6'>
                     <div class='well'><a href='/control/index?select=code'>
             <div class='alert alert-success'>
-    <h3>Code managentment:</h3>   
+    <h3>Code management:</h3>   
       </div></a>
             <table class='table table-striped'>
     <thead>
