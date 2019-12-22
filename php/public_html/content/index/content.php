@@ -15,7 +15,7 @@
         </div>
         <div class="col-sm-4 text-center">
             <img class='img-responsive center-block' style="width: 25%;" src='/design/fire.png' alt='fire'>
-            <h1>Get notified when alarm is raised, and handle them in our interface. </h1>
+            <h1>Get notified when alarms are raised, and handle them in our interface. </h1>
         </div>
     </div>
  <hr size="2"> 
@@ -26,8 +26,8 @@
 
             </div>
             <div class="col-sm-10">
-                <h1>Buy a subscibtion rigth away</h1>
-                <h2>Download our agent, uploade your code, and you are ready.</h2>
+                <h1>Buy a subscription, rigth away</h1>
+                <h2>Download our agent, upload your code, and you are ready.</h2>
             </div>
         </div>
     </div>
