@@ -13,7 +13,7 @@ function view_code(code_id)
                 if (data.parsers[i]._id.$oid == code_id) 
                 {
                     $("#code_name_input").val(data.parsers[i].name);
-                    editor.setValue(data.parsers[i].code);
+                    editor.setValue(atob(data.parsers[i].code));
                 }
             }
         },
