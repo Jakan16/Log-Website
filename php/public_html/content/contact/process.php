@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         </div>';
     }
-    header("location: /kontakt");
+    header("location: /contact");
 } 
 else {
     header("location: /index");
