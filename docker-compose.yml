@@ -30,7 +30,7 @@ services:
       LOGSTORE_URL: ${LOGSTORE_URL:-https://logstore-dev.mitlogin.dk}
       ALARMSERVICE_URL: ${ALARMSERVICE_URL:-https://logalarm-dev.mitlogin.dk}
       JOLIECLOUD_URL: ${JOLIECLOUD_URL:-https://joliecloud-dev.mitlogin.dk}
-      AUTHSERVICE_URL: ${AUTHSERVICE_URL:-http://18.185.149.38:8000}
+      AUTHSERVICE_URL: ${AUTHSERVICE_URL:-http://18.185.149.38:7900}
     networks: 
       - backend
     volumes:

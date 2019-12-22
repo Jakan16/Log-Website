@@ -17,7 +17,7 @@ define('DATE_WITHOUT_TIME', date('Y-m-d'));
 
 if (!isset($_SESSION["initialization"])) 
 {
-    $_SESSION['session_language'] = 'DK';
+    $_SESSION['session_language'] = 'GB';
     $_SESSION["log_out"] = 0;
 }
 else

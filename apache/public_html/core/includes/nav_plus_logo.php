@@ -54,7 +54,7 @@ function loginBoks() {
 
 <div class="container" id="navi">
     
-    <nav class="navbar navbar-inverse navbar-fixed-top navbar-inner" id="navi-inner">
+    <nav class="navbar navbar-fixed-top navbar-inner" id="navi-inner">
         <div class="container-fluid">
                 <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">

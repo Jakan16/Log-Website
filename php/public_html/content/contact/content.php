@@ -1,6 +1,9 @@
-<div class="container GLOBALdesign">
+<div class="container-fluid GLOBALdesign">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+              <h1>Contact LogOps</h1>
+              If you have question about our products, you are welcome to contact us from the form below.
                 <?php
                 echo $_SESSION["contact_send"];
                 unset($_SESSION["contact_send"]);
@@ -18,6 +21,7 @@
                         }
                     } 
                 ?>
+                <h1>Contact form:</h1>
   <form action="/content/contact/process" id="contactForm" onsubmit="return validateContactForm()" method="post">
 <div class="form-group">
   	<label for="mail"><?php echo $lang_data_mail . ":" ?></label>
@@ -38,4 +42,6 @@
   </form>
             </div>
         </div>
+            <div class="col-sm-2"></div>
+
 </div>

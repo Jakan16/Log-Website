@@ -5,7 +5,7 @@ function view_code(code_id)
         type: "POST",
         url: <?php echo '"'.SERIVCE_JOLIECLOUD_URL. '/retrieveCode"'; ?>,
         // The key needs to match your method's input parameter (case-sensitive).
-        data: '{"offset": 0, "limit": 20, "authorization": " <?php echo $_SESSION["LOGIN_TOKEN"]; ?>" }',
+        data: '{"offset": 0, "limit": 20, "authorization": "<?php echo $_SESSION["LOGIN_TOKEN"]; ?>" }',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(data){
@@ -29,7 +29,7 @@ function delete_code(code_name)
 {
 
     var string_buliding = '{ \
-            "authorization":" <?php echo $_SESSION["LOGIN_TOKEN"]; ?> ", \
+            "authorization":"<?php echo $_SESSION["LOGIN_TOKEN"]; ?>", \
             "name":"'+code_name+'" \
         }';
 
@@ -54,10 +54,10 @@ function delete_code(code_name)
 
 function save_code() 
 {
-    var code_to_save = editor.getValue();
+    var code_to_save =  btoa(editor.getValue());
     var code_name = $("#code_name_input").val();
 
-    var string_buliding = '{ "parser":{ "name": "'+ code_name+'", "code": "' + code_to_save + '", "type": "jolie" }, "authorization":" <?php echo $_SESSION["LOGIN_TOKEN"]; ?> " }';
+    var string_buliding = '{ "parser":{ "name": "'+ code_name+'", "code": "' + code_to_save + '", "type": "jolie" }, "authorization":"<?php echo $_SESSION["LOGIN_TOKEN"]; ?>" }';
 
     $.ajax({
         type: "POST",
@@ -85,7 +85,7 @@ function get_content_code_dashboard()
         type: "POST",
         url: <?php echo '"'.SERIVCE_JOLIECLOUD_URL. '/retrieveCode"'; ?>,
         // The key needs to match your method's input parameter (case-sensitive).
-        data: '{"offset": 0, "limit": 20, "authorization": " <?php echo $_SESSION["LOGIN_TOKEN"]; ?> " }',
+        data: '{"offset": 0, "limit": 20, "authorization": "<?php echo $_SESSION["LOGIN_TOKEN"]; ?>" }',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(data){

@@ -8,7 +8,7 @@
         <li><a href="/control/index?select=log">Log management</a></li>
         <li><a href="/control/index?select=code">Code management</a></li>
         <li><a href="/control/index?select=subscription">Subscription</a></li>
-        <li><a href="/control/index?select=agents">Agents monitoring</a></li>
+        <?php // <li><a href="/control/index?select=agents">Agents monitoring</a></li> ?>
       </ul>
     </nav>
     <div class="col-sm-10">
