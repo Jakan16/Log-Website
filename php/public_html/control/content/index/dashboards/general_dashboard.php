@@ -57,6 +57,9 @@
 $content_agent_list
     </tbody>
   </table>
+    <h3>Download the agent:</h3><a class='btn btn-default' role='button' href='/control/Agent.py' download>
+  Download Agent.py
+</a>
   </div>
     
                 </div></div>
