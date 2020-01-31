@@ -32,10 +32,11 @@ function get_content_log_dashboard()
         url: <?php echo '"'.SERIVCE_LOGSTORE_URL . '/gateway"'; ?>,
         // The key needs to match your method's input parameter (case-sensitive).
         // “path”: “?customer_id=id”
-        data: '{"method": "get", "request": {"path": ""}}',
+        data: '{"method": "get", "request": {"path": "?customer_id=<?php echo $_SESSION['user_company_name']; ?>"}}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function(data){
+            content = "no logs found";
             for (var i = data.results - 1; i >= 0; i--) {
             content += "<tr>  \
             <td>"+ data.content[i].log_id+ "</td> \

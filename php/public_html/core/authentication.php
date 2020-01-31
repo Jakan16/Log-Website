@@ -40,6 +40,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 $data = array("method" => "gettoken", "licensekey" => "NULL", "companykey" => $row['company_key']);
                                 $auth_res = call_authentication_service($data);
                                 $_SESSION["LOGIN_TOKEN"] = $auth_res["token"]; 
+                                
+                                /* FIX */ 
+                                $data_company = array("method" => "getcompanies", "serverkey" => SERVER_AUTH_KEY);                                                                    
+                                $json_result = call_authentication_service($data_company);
+                                if (count($json_result["listofcompanies"]) > 0) 
+                                {
+                                    foreach($json_result["listofcompanies"] as $comp_row) 
+                                    {
+                                        $data_company_key = $comp_row['CompanyKey'];
+                                        if ($data_company_key == $row['company_key']) 
+                                        {
+                                            $_SESSION['user_company_name'] = $comp_row['CompanyPublic'];
+                                        }
+                                    }
+                                }
+                                /* FIX */ 
                             }
 
                             // for safty reason we reset rocoverycode and recoverytime, so that no hanging code can be used. 

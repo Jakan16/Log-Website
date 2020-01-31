@@ -2,12 +2,13 @@
 function get_content_alarm_dashboard()
 {
     var content; 
-
-    $.get(<?php echo '"'.SERIVCE_ALARMSERVICE_URL.'/alarms"' ?>,
+    // alarms?customer_id=company_name
+    $.get(<?php echo '"'.SERIVCE_ALARMSERVICE_URL.'/alarms?customer_id='.$_SESSION['user_company_name'].'"' ?>,
     {
         
     },
     function(data,status){
+        content = "No alarms found";
         for (var i = data.num_results - 1; i >= 0; i--) {
             content += "<tr>  \
             <td>"+ data.content[i].id+ "</td> \
